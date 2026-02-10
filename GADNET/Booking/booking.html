@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Booking Form</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+<body>
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-md-push-5">
+						<div class="booking-cta">
+							<h1>GADNET Bookings</h1>
+							<p>GADNET Bookings makes it easy to schedule and manage services online. Book appointments for document services like Xerox (500+ pages), bulk document applications (10+ applicants), photo printing (10+ photos), and document printing (10+ pages). We also offer pickup services for phone, computer, and other electronic repairs—just book a request, and we’ll handle the rest. Enjoy a seamless experience with online payments, real-time tracking, and reliable service at your convenience.
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-pull-7">
+						<div class="booking-form">
+							<form>
+								<div class="form-group">
+									<span class="form-label">Your Booking Item  </span>
+									<input class="form-control" type="text" placeholder="Enter your Item">
+								</div>
+								<div class="form-group">
+									<span class="form-label">Your Phone Number</span>
+									<input class="form-control" type="number" placeholder="Enter your phone number" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<span class="form-label">Date to pick up</span>
+											<input class="form-control" type="date" required>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<span class="form-label">Date to Complete</span>
+											<input class="form-control" type="date" required>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="form-group">
+											<span class="form-label">Item quality</span>
+											<select class="form-control">
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+											</select>
+											<span class="select-arrow"></span>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											
+											
+											<span class="select-arrow"></span>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											
+											
+											<span class="select-arrow"></span>
+										</div>
+									</div>
+								</div>
+								<div class="form-btn">
+									<button class="submit-btn">Book</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Add this inside the <head> tag -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("X5T-igwno04hnKLtO"); // Your EmailJS public key
+        })();
+
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_pbc2apw', 'template_7lk3sso', this)
+                .then(function() {
+                    alert('Booking request sent successfully!');
+                }, function(error) {
+                    alert('Failed to send booking: ' + JSON.stringify(error));
+                });
+        });
+    </script>
+
+</body>
+
+</html>
